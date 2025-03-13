@@ -1,4 +1,3 @@
-
 This program is for ITCS4145 Assignment 3, Graph-crawer
 
 This  program  aims to find neighboring nodes of node you specify. This database holds cast members' name and quite a lot of movies. I hope you enjoy!
