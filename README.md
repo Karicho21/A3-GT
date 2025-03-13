@@ -4,10 +4,10 @@ This  program  aims to find neighboring nodes of node you specify. This database
 
 But before you begin, make sure you have access to:
 
--A Linux-based system with SLURM workload management
--gcc compiler (this is critical to execute the program)
--Access to hpc lab computer Centaurus
--UNC Charlotte VPN if you are outside of campus or not using "eduroam" network
+- A Linux-based system with SLURM workload management
+- gcc compiler (this is critical to execute the program)
+- Access to hpc lab computer Centaurus
+- UNC Charlotte VPN if you are outside of campus or not using "eduroam" network
 
 There are two ways to run this program.
 1. Using centaurus
