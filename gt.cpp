@@ -96,9 +96,9 @@ int main(int argc, char* argv[]) {
     auto end = chrono::high_resolution_clock::now();
 
     chrono::duration<double> elapsed = end - start;
-    cout << "Recorded Time: " << elapsed.count() << " seconds\n";
+    cout << "\n\nRecorded Time: " << elapsed.count() << " seconds\n";
 
-    cout << "\n\n Neighboring nodes of " << startNode << " with depth " << depth << ":\n";
+    cout << "Neighboring nodes of " << startNode << " with depth " << depth << ":\n";
     for (const auto& neighbor : neighbors) {
         cout << "  " << neighbor << endl;
     }

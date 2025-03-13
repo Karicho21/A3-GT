@@ -1,7 +1,7 @@
-Recorded Time: 0.181099 seconds
 
 
- Neighboring nodes of Tom Hanks with depth 2:
+Recorded Time: 0.180818 seconds
+Neighboring nodes of Tom Hanks with depth 2:
   The Green Mile
   Cast Away
   Road to Perdition
@@ -41,10 +41,10 @@ Recorded Time: 0.181099 seconds
   A Man Called Otto
   Asteroid City
   Here
-Recorded Time: 0.180584 seconds
 
 
- Neighboring nodes of Tom Hanks with depth 3:
+Recorded Time: 0.174853 seconds
+Neighboring nodes of Tom Hanks with depth 3:
   The Green Mile
   Cast Away
   Road to Perdition
@@ -84,10 +84,10 @@ Recorded Time: 0.180584 seconds
   A Man Called Otto
   Asteroid City
   Here
-Recorded Time: 0.181329 seconds
 
 
- Neighboring nodes of Tom Hanks with depth 4:
+Recorded Time: 0.175791 seconds
+Neighboring nodes of Tom Hanks with depth 4:
   The Green Mile
   Cast Away
   Road to Perdition
