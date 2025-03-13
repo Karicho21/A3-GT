@@ -19,13 +19,16 @@ Way to execute this program using Centaurus
 1. Connecting hpc lab computer by "ssh hpc-student.charlotte.edu -l your-username"
 2. Authenticate with Duo
 3. Type "g++ gt.cpp -o gtg -I ~/rapidjson/include -lcurl" gtg is the name of the executable file and gt.cpp is the source code. g++ allows us to make executable file that is binary so CPU can process the high level program.
-4. Type './gtg "Tom Hanks" 2' ./gtg is command to  execute the gtg file, then followed by starting node and integer which is the depth of the node you are looking for. If you want to look for the cast members of movie "Cast Away" you can type that instead  of "Tom Hanks" in example.
-5. You will see a time at the very top, this is a time that computer  took to find the neighboring nodes. More you include, longer it takes.
-
+4.Schedule the job by "sbatch gtg.sh"
+5. Outcome should be something like "Submitted batch job [????]", pay attention to the number.
+6. Wait a bit for command to finish running and record the time it takes.
+7. There are 3 jobs scheduled in gtg.sh file. To look at the time it took for each process, open record.txt by typing "cat record.txt"
 
 Keys:
 If you accidentally miss components when you try to execute, it will give you an error message that says "Missing component(s) while trying to execute gtg file. make sure to type <startNode> and <depth>". Start node can be anything as long as it is in the database. To follow the instruction, I put Tom Hanks. I don't know him but he is in a lot of movies!
 
 Records from my end:
 ./gtg "Tom Hanks" 2: Recorded Time: 0.171754 seconds
+./gtg "Tom Hanks" 3: Recorded Time: 0.170985 seconds
+./gtg "Tom Hanks" 4: Recorded Time: 0.184771 seconds
 
