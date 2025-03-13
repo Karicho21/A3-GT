@@ -28,8 +28,8 @@ Way to execute this program using Centaurus:
 
 Way to execute his program using your local machine:
 1. libcurl is a library for making HTTP requests in C++. To install it:
-	# On Ubuntu/Debian: sudo apt install libcurl4-openssl-dev
-	# On macOS: brew install curl
+	- On Ubuntu/Debian: sudo apt install libcurl4-openssl-dev
+	- On macOS: brew install curl
 2. RapidJSON is a fast JSON parser for C++. To install it using GitHub: git clone https://github.com/Tencent/rapidjson.git 
 3. Run these commands: cd rapidjson, mkdir build && cd build, cmake .., sudo make install
 4. Type "g++ gt.cpp -o gtg -I ~/rapidjson/include -lcurl" gtg is the name of the executable file and gt.cpp is the source code. g++ allows us to make executable file that >
