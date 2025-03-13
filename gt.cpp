@@ -9,23 +9,39 @@
 
 using namespace std;
 
-// Callback function for curl to write response data into a string
 size_t my_write_data(char *ptr, size_t size, size_t nmemb, void *userdata) {
+
     string* mystring = (string*)userdata;
-    for (size_t i = 0; i < nmemb; ++i) {
-        mystring->push_back(ptr[i]);
-    }
-    return nmemb;
+
+    mystring->append(ptr, size * nmemb);
+
+    return nmemb * size;
 }
 
-// BFS function
+string urlEncode(const string &value) {
+    string encoded;
+    char hex[4];
+
+    for (unsigned char c : value) {
+        if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
+            encoded += c;
+        } else {
+            snprintf(hex, sizeof(hex), "%%%02X", c);
+            encoded += hex;
+        }
+    }
+    return encoded;
+}
+
 vector<string> bfs(string startNode, int depth) {
-    string url = "http://hollywood-graph-crawler.bridgesuncc.org/neighbors/" + startNode;
+    //definition of url we are using
+    string url = "http://hollywood-graph-crawler.bridgesuncc.org/neighbors/" + urlEncode(startNode);
     CURL *curl;
     CURLcode res;
     string readBuffer;
     vector<string> neighbors;
 
+    //sourced from video you shared
     curl = curl_easy_init();
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
@@ -35,18 +51,18 @@ vector<string> bfs(string startNode, int depth) {
         if (res != CURLE_OK) {
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
         }
+
         curl_easy_cleanup(curl);
 
-        // Parse JSON response
-        rapidjson::Document doc;
-        if (doc.Parse(readBuffer.c_str()).HasParseError()) {
-            cerr << "JSON parse error at offset " << doc.GetErrorOffset()
-                << ": " << rapidjson::GetParseErrorFunc()(doc.GetParseError()) << endl;
+        if (readBuffer.empty()) {
+            cerr << "Error: Received empty response from" << endl;
             return neighbors;
         }
 
-        if (readBuffer.empty()) {
-            cerr << "Error: Received empty response" << endl;
+        rapidjson::Document doc;
+        if (doc.Parse(readBuffer.c_str()).HasParseError()) {
+            cerr << "JSON error at node " << doc.GetErrorOffset()
+                 << ": " << rapidjson::GetParseErrorFunc()(doc.GetParseError()) << endl;
             return neighbors;
         }
 
@@ -55,13 +71,12 @@ vector<string> bfs(string startNode, int depth) {
                 if (neighbor.IsString()) {
                     neighbors.push_back(neighbor.GetString());
                 } else {
-                    cerr << "Error: Unexpected neighbor type" << endl;
+                    cerr << "Error: Unexpected neighbor type or name" << endl;
                 }
             }
         } else {
-            cerr << "Error: 'neighbors' field not found or is not an array" << endl;
+            cerr << "Error: 'neighbors' is not recognized: possible typo detected" << endl;
         }
-        return neighbors;
     }
 
     return neighbors;
@@ -69,7 +84,7 @@ vector<string> bfs(string startNode, int depth) {
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
-        cerr << "Usage: " << argv[0] << " <startNode> <depth>\n";
+        cerr << "Missing component(s) while trying to execute " << argv[0] << " file. make sure to type <startNode> and <depth>\n";
         return 1;
     }
 
@@ -81,13 +96,12 @@ int main(int argc, char* argv[]) {
     auto end = chrono::high_resolution_clock::now();
 
     chrono::duration<double> elapsed = end - start;
-    cout << "Time: " << elapsed.count() << " seconds\n";
+    cout << "Recorded Time: " << elapsed.count() << " seconds\n";
 
-    cout << "Neighboring node of " << startNode << ":\n";
+    cout << "Neighboring nodes of " << startNode << ":\n";
     for (const auto& neighbor : neighbors) {
         cout << "  " << neighbor << endl;
     }
 
     return 0;
 }
-
