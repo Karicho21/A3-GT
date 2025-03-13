@@ -44,6 +44,6 @@ If you accidentally miss components when you try to execute, it will give you an
 If you would like to run the progarm with your sets of data, you can execute it by "./gtg <Starting node> <Depth> "
 
 Records from my end: (It vaires every time, but should  be similar)
-./gtg "Tom Hanks" 2: Recorded Time: 0.171754 seconds
-./gtg "Tom Hanks" 3: Recorded Time: 0.170985 seconds
-./gtg "Tom Hanks" 4: Recorded Time: 0.184771 seconds
+- ./gtg "Tom Hanks" 2: Recorded Time: 0.171754 seconds
+- ./gtg "Tom Hanks" 3: Recorded Time: 0.170985 seconds
+- ./gtg "Tom Hanks" 4: Recorded Time: 0.184771 seconds
