@@ -40,7 +40,7 @@ Depth 1: A Man Called Otto
 Depth 1: Asteroid City
 Depth 1: Here
 ------------------------------------------------------
-Recorded Time: 0.176366 seconds
+Recorded Time: 0.211193 seconds
 ------------------------------------------------------
 
 -------- Depth 0 (The starting node): Tom Hanks--------
@@ -933,7 +933,7 @@ Depth 2: Katy Heffernan Smith
 Depth 2: Lubna Azabal
 Depth 2: Robin Wright
 ------------------------------------------------------
-Recorded Time: 7.02859 seconds
+Recorded Time: 6.39543 seconds
 ------------------------------------------------------
 
 -------- Depth 0 (The starting node): Tom Hanks--------
@@ -3467,12 +3467,31 @@ Depth 3: Grudge Match
 Depth 3: Third Person
 Depth 3: I Am Here
 Depth 3: The Nice Guys
+Depth 3: Dinner Rush
+Depth 3: Serendipity
+Depth 3: My Big Fat Greek Wedding
+Depth 3: Raise Your Voice
+Depth 3: Raising Helen
+Depth 3: Hunt for Justice: the Louise Arbour Story
+Depth 3: Bigger Than the Sky
+Depth 3: Dreamland
+Depth 3: I Hate Valentine's Day
+Depth 3: Ramona and Beezus
+Depth 3: The Lookalike
+Depth 3: The Boy Next Door
+Depth 3: My Big Fat Greek Wedding 2
+Depth 3: My Dead Boyfriend
+Depth 3: All Saints
+Depth 3: To All the Boys I've Loved Before
+Depth 3: God's Not Dead: A Light in Darkness
+Depth 3: Gully
+Depth 3: To All the Boys: Always and Forever
+Depth 3: My Big Fat Greek Wedding 3
 Depth 3: The Last Producer
 Depth 3: Dish Dogs
 Depth 3: The Lord of the Rings: The Fellowship of the Ring
 Depth 3: The Lord of the Rings: The Two Towers
 Depth 3: The Lord of the Rings: The Return of the King
-Depth 3: Bigger Than the Sky
 Depth 3: Smile
 Depth 3: Borderland
 Depth 3: The Final Season
@@ -3577,7 +3596,6 @@ Depth 3: The Next Big Thing
 Depth 3: Mickey
 Depth 3: The Ice Harvest
 Depth 3: Hot Tamale
-Depth 3: I Hate Valentine's Day
 Depth 3: Chicago Overcoat
 Depth 3: Black Dynamite
 Depth 3: New York Street Games
@@ -4135,7 +4153,6 @@ Depth 3: The Discoverers
 Depth 3: Consumed
 Depth 3: Tumbledown
 Depth 3: Bright Lights: Starring Carrie Fisher and Debbie Reynolds
-Depth 3: My Dead Boyfriend
 Depth 3: War Machine
 Depth 3: The French Dispatch
 Depth 3: Ex-Husbands
@@ -4769,14 +4786,11 @@ Depth 3: Last Flag Flying
 Depth 3: The Upside
 Depth 3: El Camino: A Breaking Bad Movie
 Depth 3: Jerry and Marge Go Large
-Depth 3: My Big Fat Greek Wedding
 Depth 3: My Life in Ruins
 Depth 3: For a Good Time, Call...
 Depth 3: Helicopter Mom
-Depth 3: My Big Fat Greek Wedding 2
 Depth 3: Ivy + Bean: The Ghost That Had to Go
 Depth 3: Ivy + Bean
-Depth 3: My Big Fat Greek Wedding 3
 Depth 3: Spy Game
 Depth 3: The Great Raid
 Depth 3: Music Within
@@ -4803,7 +4817,6 @@ Depth 3: Poms
 Depth 3: Pet Sematary: Bloodlines
 Depth 3: The Story of Us
 Depth 3: Auto Focus
-Depth 3: Raise Your Voice
 Depth 3: The Chumscrubber
 Depth 3: Beautiful Ohio
 Depth 3: The Art of Getting By
@@ -5327,7 +5340,6 @@ Depth 3: Slow Burn
 Depth 3: Radio
 Depth 3: Mysterious Skin
 Depth 3: North Country
-Depth 3: Dreamland
 Depth 3: The Curiosity of Chance
 Depth 3: Cloverfield
 Depth 3: The Perfect Game
@@ -6358,7 +6370,6 @@ Depth 3: The Invitation
 Depth 3: Fourplay
 Depth 3: The Truth About Charlie
 Depth 3: The Guru
-Depth 3: Raising Helen
 Depth 3: The Ode
 Depth 3: The Equalizer 2
 Depth 3: Blue Valentine
@@ -6440,7 +6451,6 @@ Depth 3: It Comes at Night
 Depth 3: Assassination Nation
 Depth 3: Monster
 Depth 3: Waves
-Depth 3: Gully
 Depth 3: Luce
 Depth 3: Cyrano
 Depth 3: Chevalier
@@ -6839,6 +6849,6 @@ Depth 3: Land
 Depth 3: Devil's Peak
 Depth 3: Damsel
 ------------------------------------------------------
-Recorded Time: 223.788 seconds
+Recorded Time: 142.091 seconds
 ------------------------------------------------------
 

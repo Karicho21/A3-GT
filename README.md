@@ -1,5 +1,6 @@
 
 
+
 This program is for ITCS4145 Assignment 3, Graph-crawer
 
 This  program  aims to find neighboring nodes of node you specify. This database holds cast members' name and quite a lot of movies. I hope you enjoy!
@@ -44,6 +45,6 @@ If you accidentally miss components when you try to execute, it will give you an
 If you would like to run the progarm with your sets of data, you can execute it by "./gtg <Starting node> <Depth> "
 
 Records from my end: (It vaires every time, but should  be similar)
-- ./gtg "Tom Hanks" 2: Recorded Time: 0.171754 seconds
-- ./gtg "Tom Hanks" 3: Recorded Time: 0.170985 seconds
-- ./gtg "Tom Hanks" 4: Recorded Time: 0.184771 seconds
+- ./gtg "Tom Hanks" 1: Recorded Time: 0.176366 seconds
+- ./gtg "Tom Hanks" 2: Recorded Time: 7.02859 seconds
+- ./gtg "Tom Hanks" 3: Recorded Time: 223.788 seconds
