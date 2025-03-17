@@ -6,6 +6,7 @@
 #include <chrono>
 #include <vector>
 #include <rapidjson/document.h>
+#include <unordered_map>
 
 using namespace std;
 
@@ -33,21 +34,20 @@ string urlEncode(const string &value) {
     return encoded;
 }
 
-vector<string> bfs(string startNode, int depth) {
-    //definition of url we are using
-    string url = "http://hollywood-graph-crawler.bridgesuncc.org/neighbors/" + urlEncode(startNode);
+vector<string> vicini(const string &node) {
+    string url = "http://hollywood-graph-crawler.bridgesuncc.org/neighbors/" + urlEncode(node);
     CURL *curl;
     CURLcode res;
     string readBuffer;
     vector<string> neighbors;
 
-    //sourced from video you shared
     curl = curl_easy_init();
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, my_write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
         res = curl_easy_perform(curl);
+
         if (res != CURLE_OK) {
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
         }
@@ -55,14 +55,14 @@ vector<string> bfs(string startNode, int depth) {
         curl_easy_cleanup(curl);
 
         if (readBuffer.empty()) {
-            cerr << "Error: Received empty response from" << endl;
+            cerr << "Error: Received empty response from server" << endl;
             return neighbors;
         }
 
         rapidjson::Document doc;
         if (doc.Parse(readBuffer.c_str()).HasParseError()) {
-            cerr << "JSON error at node " << doc.GetErrorOffset()
-                 << ": " << rapidjson::GetParseErrorFunc()(doc.GetParseError()) << endl;
+            cerr << "JSON parse error at offset " << doc.GetErrorOffset() << ": "
+                 << rapidjson::GetParseErrorFunc(doc.GetParseError()) << endl;
             return neighbors;
         }
 
@@ -71,15 +71,50 @@ vector<string> bfs(string startNode, int depth) {
                 if (neighbor.IsString()) {
                     neighbors.push_back(neighbor.GetString());
                 } else {
-                    cerr << "Error: Unexpected neighbor type or name" << endl;
+                    cerr << "Error: Unexpected neighbor type" << endl;
                 }
             }
         } else {
-            cerr << "Error: 'neighbors' is not recognized: possible typo detected" << endl;
+            cerr << "Error: 'neighbors' field not found in response" << endl;
         }
     }
 
     return neighbors;
+}
+
+vector<string> bfs(const string &startNode, int maxDepth) {
+    unordered_map<string, vector<string>> graph;
+    queue<pair<string, int>> q;
+    unordered_set<string> visited;
+    vector<string> result;
+
+    q.push({startNode, 0});
+    visited.insert(startNode);
+    result.push_back(startNode); 
+
+    cout << "Depth 0 (the startinng node) : " << startNode << "\n";
+
+    while (!q.empty()) {
+        auto [node, depth] = q.front();
+        q.pop();
+
+        if (depth >= maxDepth) continue;
+
+        if (graph.find(node) == graph.end()) {
+            graph[node] = vicini(node);
+        }
+
+        for (const string &neighbor : graph[node]) {
+            if (visited.find(neighbor) == visited.end()) {
+                visited.insert(neighbor);
+                q.push({neighbor, depth + 1});
+                result.push_back(neighbor);
+                cout << "Depth " << (depth + 1) << ": " << neighbor << "\n";
+            }
+        }
+    }
+
+    return result; 
 }
 
 int main(int argc, char* argv[]) {
@@ -92,16 +127,17 @@ int main(int argc, char* argv[]) {
     int depth = stoi(argv[2]);
 
     auto start = chrono::high_resolution_clock::now();
-    vector<string> neighbors = bfs(startNode, depth);
+    vector<string> neighbors = bfs(startNode, depth);  
     auto end = chrono::high_resolution_clock::now();
 
     chrono::duration<double> elapsed = end - start;
-    cout << "\n\nRecorded Time: " << elapsed.count() << " seconds\n";
 
-    cout << "Neighboring nodes of " << startNode << " with depth " << depth << ":\n";
+    /*cout << "Depth 0 (the starting node): " << startNode << "\n";
     for (const auto& neighbor : neighbors) {
-        cout << "  " << neighbor << endl;
-    }
+        cout << "Depth " << (depth + 1) << ": " << neighbor << "\n";
+    }*/
+
+    cout << "\n\nRecorded Time: " << elapsed.count() << " seconds\n";
 
     return 0;
 }
