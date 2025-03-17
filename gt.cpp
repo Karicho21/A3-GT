@@ -92,7 +92,7 @@ vector<string> bfs(const string &startNode, int maxDepth) {
     visited.insert(startNode);
     result.push_back(startNode); 
 
-    cout << "Depth 0 (the startinng node) : " << startNode << "\n";
+    cout << "-------- Depth 0 (The starting node): " << startNode << "--------\n\n";
 
     while (!q.empty()) {
         auto [node, depth] = q.front();
@@ -136,8 +136,9 @@ int main(int argc, char* argv[]) {
     for (const auto& neighbor : neighbors) {
         cout << "Depth " << (depth + 1) << ": " << neighbor << "\n";
     }*/
-
-    cout << "\n\nRecorded Time: " << elapsed.count() << " seconds\n";
+    cout << "------------------------------------------------------";
+    cout << "\nRecorded Time: " << elapsed.count() << " seconds\n";
+    cout << "------------------------------------------------------\n\n";
 
     return 0;
 }

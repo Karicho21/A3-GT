@@ -6,6 +6,6 @@
 
 record="record.txt"
 
+./gtg "Tom Hanks" 1 >> $record
 ./gtg "Tom Hanks" 2 >> $record
 ./gtg "Tom Hanks" 3 >> $record
-./gtg "Tom Hanks" 4 >> $record
